@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasteTrip Beta Signup</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    :root {
+      --taste-navy: #06243c;
+      --taste-navy-dark: #03182a;
+      --taste-green: #1f6b45;
+      --taste-green-dark: #15472f;
+      --taste-tomato: #f45b3f;
+      --taste-tomato-dark: #d9442c;
+      --taste-gold: #f3b33d;
+      --taste-cream: #fff7e9;
+      --taste-mint: #dff4df;
+      --taste-ink: #243126;
+      --taste-muted: #667267;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(244, 91, 63, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(243, 179, 61, 0.24), transparent 30%),
+        radial-gradient(circle at 50% 95%, rgba(6, 36, 60, 0.1), transparent 34%),
+        linear-gradient(135deg, var(--taste-cream), var(--taste-mint));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 430px;
+      width: 100%;
+      background: white;
+      padding: 36px 28px;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid rgba(6, 36, 60, 0.12);
+      box-shadow: 0 18px 42px rgba(6, 36, 60, 0.16);
+    }
+
+    .brand-logo {
+      width: 190px;
+      height: 190px;
+      display: block;
+      margin: 0 auto 12px;
+      background-image: url("assets/tastetrip-logo.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+      user-select: none;
+      pointer-events: auto;
+    }
+
+    .brand-name {
+      color: var(--taste-navy);
+      font-size: 34px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .launch-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 8px 14px;
+      margin-bottom: 16px;
+      background: rgba(244, 91, 63, 0.1);
+      color: var(--taste-tomato-dark);
+      border: 1px solid rgba(244, 91, 63, 0.18);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--taste-navy-dark);
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--taste-muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgba(6, 36, 60, 0.18);
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 14px;
+      color: var(--taste-ink);
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--taste-tomato);
+      box-shadow: 0 0 0 4px rgba(244, 91, 63, 0.12);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--taste-tomato), #ff744f);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(244, 91, 63, 0.24);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, var(--taste-tomato-dark), var(--taste-tomato));
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.72;
+      box-shadow: none;
+    }
+
+    .message {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--taste-navy);
+    }
+
+    .store-badges {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .store-badge {
+      min-height: 58px;
+      background: var(--taste-navy-dark);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      text-align: left;
+      box-shadow: 0 10px 22px rgba(6, 36, 60, 0.16);
+    }
+
+    .store-icon {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      color: var(--taste-tomato);
+    }
+
+    .store-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .store-note {
+      font-size: 9px;
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .store-name {
+      font-size: 15px;
+      line-height: 1.1;
+      font-weight: bold;
+      color: white;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--taste-muted);
+    }
+
+    @media (max-width: 380px) {
+      .store-badges {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div
+      class="brand-logo"
+      role="img"
+      aria-label="TasteTrip logo"
+      oncontextmenu="return false;"
+    ></div>
+    <div class="brand-name">TasteTrip&trade;</div>
+    <div class="launch-label">Las Vegas Beta Launch</div>
+
+    <h1>Join the TasteTrip Beta</h1>
+
+    <p>
+      Discover authentic local restaurants, hidden gems, and food spots tourists usually miss.
+      Sign up to get early beta access.
+    </p>
+
+    <form id="signupForm">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Join Beta Waitlist</button>
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <div class="store-badges" aria-label="TasteTrip app availability">
+      <div class="store-badge">
+        <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M16.4 12.6c0-2.5 2.1-3.7 2.2-3.8-1.2-1.7-3-1.9-3.6-1.9-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9c-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.8 1.3 10.3.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.4.8 2.3-1.2 3.1-2.5c1-1.4 1.4-2.8 1.4-2.9-.1-.1-2.9-1.2-3-4.2zM14 5.3c.7-.9 1.2-2 1-3.2-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.9-1 3 1 .1 2.1-.5 2.8-1.3z" />
+        </svg>
+        <div class="store-copy">
+          <span class="store-note">Coming soon on the</span>
+          <span class="store-name">App Store</span>
+        </div>
+      </div>
+
+      <div class="store-badge">
+        <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M4.2 3.2c-.4.3-.6.8-.6 1.5v14.6c0 .7.2 1.2.6 1.5l8.5-8.8-8.5-8.8z" />
+          <path fill="currentColor" d="M15.5 9.1 6 3.8l7.6 7.8 1.9-2.5z" opacity=".75" />
+          <path fill="currentColor" d="M6 20.2 15.5 15l-1.9-2.5L6 20.2z" opacity=".55" />
+          <path fill="currentColor" d="M20 11.1 16.8 9.3 14.7 12l2.1 2.7 3.2-1.8c.9-.5.9-1.3 0-1.8z" />
+        </svg>
+        <div class="store-copy">
+          <span class="store-note">Coming soon on</span>
+          <span class="store-name">Google Play</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2026 TasteTrip. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://lrijxctkkwhuxgampfzy.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_5AhjciZlBf9gr_YsvpB0Kw_oWuhHxTF";
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById("signupForm");
+    const emailInput = document.getElementById("email");
+    const submitButton = form.querySelector("button");
+    const message = document.getElementById("message");
+    const brandLogo = document.querySelector(".brand-logo");
+
+    brandLogo.addEventListener("dragstart", function(e) {
+      e.preventDefault();
+    });
+
+    brandLogo.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener("copy", function(e) {
+      if (document.getSelection().containsNode(brandLogo, true)) {
+        e.preventDefault();
+      }
+    });
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const email = emailInput.value.trim().toLowerCase();
+
+      if (!email) {
+        message.textContent = "Please enter your email.";
+        return;
+      }
+
+      if (
+        SUPABASE_URL === "YOUR_SUPABASE_URL" ||
+        SUPABASE_ANON_KEY === "YOUR_SUPABASE_ANON_KEY"
+      ) {
+        message.textContent = "Supabase is not connected yet.";
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Joining...";
+      message.textContent = "";
+
+      const { error } = await supabaseClient
+        .from("beta_signups")
+        .insert([
+          {
+            email: email,
+            launch_city: "Las Vegas",
+            source: "TasteTrip beta page"
+          }
+        ]);
+
+      if (!error) {
+        message.textContent = "You're on the beta waitlist!";
+        emailInput.value = "";
+      } else if (error.code === "23505") {
+        message.textContent = "You're already on the beta waitlist.";
+      } else if (error.code === "42P01") {
+        message.textContent = "The beta signup table has not been created yet.";
+      } else if (error.code === "42501") {
+        message.textContent = "Supabase needs the beta signup insert policy.";
+      } else if (error.message && error.message.toLowerCase().includes("invalid api key")) {
+        message.textContent = "The Supabase key is not valid for this project.";
+      } else {
+        const errorCode = error.code ? ` (${error.code})` : "";
+        message.textContent = `${error.message || "Something went wrong. Please try again."}${errorCode}`;
+        console.error(error);
+      }
+
+      submitButton.disabled = false;
+      submitButton.textContent = "Join Beta Waitlist";
+    });
+  </script>
+</body>
+</html>
