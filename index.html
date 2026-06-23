@@ -148,6 +148,27 @@
       color: var(--taste-navy);
     }
 
+    .beta-app-link {
+      min-height: 46px;
+      margin-top: 18px;
+      border: 1px solid rgba(6, 36, 60, 0.18);
+      border-radius: 10px;
+      color: var(--taste-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .beta-app-link:hover,
+    .beta-app-link:focus-visible {
+      border-color: var(--taste-tomato);
+      color: var(--taste-tomato-dark);
+      outline: none;
+    }
+
     .store-badges {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -237,6 +258,14 @@
 
     <div class="message" id="message"></div>
 
+    <a
+      class="beta-app-link"
+      href="https://tastetrip-beta.netlify.app"
+      rel="noopener noreferrer"
+    >
+      Already invited? Open TasteTrip Beta
+    </a>
+
     <div class="store-badges" aria-label="TasteTrip app availability">
       <div class="store-badge">
         <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -269,9 +298,12 @@
 
   <script>
     const SUPABASE_URL = "https://lrijxctkkwhuxgampfzy.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_5AhjciZlBf9gr_YsvpB0Kw_oWuhHxTF";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_5AhjciZlBf9gr_YsvpB0Kw_oWuhHxTF";
 
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabaseClient = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
 
     const form = document.getElementById("signupForm");
     const emailInput = document.getElementById("email");
@@ -305,7 +337,7 @@
 
       if (
         SUPABASE_URL === "YOUR_SUPABASE_URL" ||
-        SUPABASE_ANON_KEY === "YOUR_SUPABASE_ANON_KEY"
+        SUPABASE_PUBLISHABLE_KEY === "YOUR_SUPABASE_PUBLISHABLE_KEY"
       ) {
         message.textContent = "Supabase is not connected yet.";
         return;

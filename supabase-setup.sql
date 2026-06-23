@@ -7,8 +7,10 @@ create table if not exists public.beta_signups (
 );
 
 alter table public.beta_signups enable row level security;
+alter table public.beta_signups force row level security;
 
 grant usage on schema public to anon, authenticated;
+revoke all on table public.beta_signups from anon, authenticated;
 grant insert on table public.beta_signups to anon, authenticated;
 
 drop policy if exists "Anyone can join the beta waitlist" on public.beta_signups;
