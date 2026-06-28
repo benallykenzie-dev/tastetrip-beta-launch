@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasteTrip Privacy Policy</title>
+
+  <style>
+    :root {
+      --taste-navy: #06243c;
+      --taste-navy-dark: #03182a;
+      --taste-green: #1f6b45;
+      --taste-green-light: #e7f8ee;
+      --taste-tomato: #f45b3f;
+      --taste-tomato-dark: #d9442c;
+      --taste-orange: #ff5a00;
+      --taste-cream: #fff7e9;
+      --taste-mint: #dff4df;
+      --taste-gold: #f3b33d;
+      --taste-ink: #243126;
+      --taste-muted: #667267;
+      --taste-border: rgba(6, 36, 60, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 90, 0, 0.2), transparent 30%),
+        radial-gradient(circle at 86% 8%, rgba(243, 179, 61, 0.22), transparent 28%),
+        radial-gradient(circle at 48% 100%, rgba(31, 107, 69, 0.16), transparent 34%),
+        linear-gradient(135deg, #fffaf1, var(--taste-mint));
+      color: var(--taste-ink);
+      padding: 24px;
+    }
+
+    .policy-shell {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      background: white;
+      border: 1px solid var(--taste-border);
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(6, 36, 60, 0.16);
+      overflow: hidden;
+    }
+
+    .policy-hero {
+      background:
+        radial-gradient(circle at 82% 22%, rgba(255, 255, 255, 0.2), transparent 24%),
+        linear-gradient(135deg, var(--taste-orange), var(--taste-tomato));
+      color: white;
+      padding: 30px 28px 36px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .brand-mark {
+      width: 76px;
+      height: 76px;
+      border-radius: 24px;
+      background:
+        white url("assets/tastetrip-logo.png") center / 86% no-repeat;
+      box-shadow: 0 14px 28px rgba(6, 36, 60, 0.22);
+      flex: 0 0 auto;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .home-link:hover,
+    .home-link:focus-visible {
+      background: rgba(255, 255, 255, 0.22);
+      color: white;
+      outline: none;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .effective-date {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .policy-content {
+      padding: 34px 30px 42px;
+    }
+
+    h2 {
+      color: var(--taste-navy);
+      font-size: 24px;
+      margin: 30px 0 10px;
+      padding-left: 14px;
+      border-left: 5px solid var(--taste-orange);
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p,
+    li {
+      color: var(--taste-muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 8px 0 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--taste-navy-dark);
+    }
+
+    a {
+      color: var(--taste-tomato-dark);
+      font-weight: bold;
+    }
+
+    .notice {
+      background:
+        linear-gradient(135deg, var(--taste-green-light), rgba(255, 247, 233, 0.92));
+      border: 1px solid rgba(31, 107, 69, 0.24);
+      border-radius: 18px;
+      padding: 18px;
+      margin: 20px 0;
+    }
+
+    .notice p {
+      margin-bottom: 0;
+      color: var(--taste-green);
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px;
+      }
+
+      .policy-hero,
+      .policy-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .brand-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand-mark {
+        width: 68px;
+        height: 68px;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="policy-shell">
+    <section class="policy-hero">
+      <div class="brand-row">
+        <div class="brand-mark" role="img" aria-label="TasteTrip logo"></div>
+        <a class="home-link" href="index.html">Back to TasteTrip</a>
+      </div>
+      <h1>Privacy Policy</h1>
+      <div class="effective-date">Effective date: June 27, 2026</div>
+    </section>
+
+    <section class="policy-content">
+      <h2>Overview</h2>
+      <p>
+        TasteTrip is a beta restaurant discovery app that helps users find local restaurants,
+        menu items, deals, reviews, dietary information, and local food recommendations.
+        This Privacy Policy explains what information TasteTrip collects, how it is used,
+        and the choices users have.
+      </p>
+
+      <div class="notice">
+        <p>
+          TasteTrip is currently in beta. Some features may change as the app moves toward
+          its first public version.
+        </p>
+      </div>
+
+      <h2>Information We Collect</h2>
+      <p>Depending on how you use TasteTrip, we may collect:</p>
+      <ul>
+        <li><strong>Account information:</strong> name, email address, account ID, sign-in status, and beta access status.</li>
+        <li><strong>Profile settings:</strong> dietary preferences, saved restaurants, notification preferences, and location settings.</li>
+        <li><strong>Location information:</strong> manually entered location details or device location permission choices, if you choose to enable location features.</li>
+        <li><strong>User-submitted content:</strong> restaurant reviews, food item reviews, support requests, beta feedback, restaurant suggestions, and reports about incorrect restaurant or menu information.</li>
+        <li><strong>App activity:</strong> actions needed to operate the app, such as saving restaurants, changing preferences, submitting feedback, or viewing restaurant and menu details.</li>
+        <li><strong>Technical information:</strong> basic device, browser, app, and diagnostic information used to keep the beta working and improve reliability.</li>
+      </ul>
+
+      <h2>How We Use Information</h2>
+      <p>We use information to:</p>
+      <ul>
+        <li>Create and manage TasteTrip accounts.</li>
+        <li>Control beta access and waitlist access.</li>
+        <li>Save user preferences, saved restaurants, reviews, and settings.</li>
+        <li>Show restaurant, menu, dietary, and location-based discovery features.</li>
+        <li>Respond to support requests, bug reports, and beta feedback.</li>
+        <li>Improve TasteTrip features, usability, safety, and reliability.</li>
+        <li>Protect against misuse, spam, unauthorized access, or security issues.</li>
+        <li>Comply with legal, safety, and platform requirements.</li>
+      </ul>
+
+      <h2>Location</h2>
+      <p>
+        TasteTrip may use location settings to help users discover nearby restaurants and local
+        recommendations. You can adjust location permissions in your device settings and manage
+        location preferences in the app. You may also use TasteTrip with a manually entered location
+        where available.
+      </p>
+
+      <h2>Payments and Orders</h2>
+      <p>
+        TasteTrip beta is focused on restaurant discovery. Some prototype checkout, cart, or order
+        screens may appear during beta testing. TasteTrip does not intentionally collect or process
+        real payment card numbers in the beta. If payment features are added in the future, payment
+        information will be handled through a secure payment provider, and this policy will be updated.
+      </p>
+
+      <h2>How We Share Information</h2>
+      <p>
+        We do not sell personal information. We may share limited information only when needed:
+      </p>
+      <ul>
+        <li>With service providers that help operate TasteTrip, such as hosting, authentication, database, maps, and app distribution services.</li>
+        <li>When required by law, regulation, legal process, or platform safety requirements.</li>
+        <li>To protect TasteTrip, users, restaurants, or the public from fraud, abuse, security issues, or harmful activity.</li>
+        <li>With your consent or at your direction.</li>
+      </ul>
+
+      <h2>Service Providers</h2>
+      <p>
+        TasteTrip may use third-party services, including Supabase for authentication and database
+        services, Netlify for web hosting, Google Play for app distribution, and Google Maps or
+        map links for location-related features. These providers process information according to
+        their own privacy practices and our configuration of the app.
+      </p>
+
+      <h2>Data Retention</h2>
+      <p>
+        We keep information for as long as needed to provide TasteTrip, support beta testing,
+        comply with legal obligations, resolve issues, and improve the app. Users may request
+        deletion of their account or personal information by contacting us.
+      </p>
+
+      <h2>Your Choices</h2>
+      <ul>
+        <li>You can update notification, dietary, saved restaurant, and location settings in the app.</li>
+        <li>You can turn off device location permissions in your device settings.</li>
+        <li>You can contact us to request access, correction, or deletion of personal information.</li>
+        <li>You can stop using TasteTrip at any time.</li>
+      </ul>
+
+      <h2>Security</h2>
+      <p>
+        We use reasonable technical and organizational measures to protect user information.
+        No online service can guarantee complete security, but we work to keep TasteTrip beta
+        protected as it grows.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        TasteTrip is not directed to children under 13. We do not knowingly collect personal
+        information from children under 13. If you believe a child has provided information to
+        TasteTrip, please contact us so we can review and delete it if needed.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy as TasteTrip changes. If we make meaningful changes,
+        we will update the effective date and make the revised policy available through the app
+        or launch website.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this Privacy Policy or your information, contact TasteTrip at
+        <a href="mailto:tastetrip.app@gmail.com">tastetrip.app@gmail.com</a>.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
