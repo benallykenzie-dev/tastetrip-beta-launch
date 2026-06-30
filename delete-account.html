@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete TasteTrip Account</title>
+
+  <style>
+    :root {
+      --taste-navy: #06243c;
+      --taste-navy-dark: #03182a;
+      --taste-green: #1f6b45;
+      --taste-green-light: #e7f8ee;
+      --taste-tomato: #f45b3f;
+      --taste-tomato-dark: #d9442c;
+      --taste-orange: #ff5a00;
+      --taste-cream: #fff7e9;
+      --taste-mint: #dff4df;
+      --taste-ink: #243126;
+      --taste-muted: #667267;
+      --taste-border: rgba(6, 36, 60, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 90, 0, 0.2), transparent 30%),
+        radial-gradient(circle at 86% 8%, rgba(243, 179, 61, 0.22), transparent 28%),
+        radial-gradient(circle at 48% 100%, rgba(31, 107, 69, 0.16), transparent 34%),
+        linear-gradient(135deg, #fffaf1, var(--taste-mint));
+      color: var(--taste-ink);
+      padding: 24px;
+    }
+
+    .page-shell {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      background: white;
+      border: 1px solid var(--taste-border);
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(6, 36, 60, 0.16);
+      overflow: hidden;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 82% 22%, rgba(255, 255, 255, 0.2), transparent 24%),
+        linear-gradient(135deg, var(--taste-orange), var(--taste-tomato));
+      color: white;
+      padding: 30px 28px 36px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .brand-mark {
+      width: 76px;
+      height: 76px;
+      border-radius: 24px;
+      background:
+        white url("assets/tastetrip-logo.png") center / 86% no-repeat;
+      box-shadow: 0 14px 28px rgba(6, 36, 60, 0.22);
+      flex: 0 0 auto;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .content {
+      padding: 34px 30px 42px;
+    }
+
+    h2 {
+      color: var(--taste-navy);
+      font-size: 24px;
+      margin: 30px 0 10px;
+      padding-left: 14px;
+      border-left: 5px solid var(--taste-orange);
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p,
+    li {
+      color: var(--taste-muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ol,
+    ul {
+      padding-left: 22px;
+      margin: 8px 0 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--taste-navy-dark);
+    }
+
+    a {
+      color: var(--taste-tomato-dark);
+      font-weight: bold;
+    }
+
+    .notice {
+      background:
+        linear-gradient(135deg, var(--taste-green-light), rgba(255, 247, 233, 0.92));
+      border: 1px solid rgba(31, 107, 69, 0.24);
+      border-radius: 18px;
+      padding: 18px;
+      margin: 20px 0;
+    }
+
+    .notice p {
+      margin-bottom: 0;
+      color: var(--taste-green);
+    }
+
+    .contact-card {
+      background: #fff7f2;
+      border: 1px solid rgba(244, 91, 63, 0.22);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px;
+      }
+
+      .hero,
+      .content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .brand-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand-mark {
+        width: 68px;
+        height: 68px;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="brand-row">
+        <div class="brand-mark" role="img" aria-label="TasteTrip logo"></div>
+        <a class="home-link" href="index.html">Back to TasteTrip</a>
+      </div>
+      <h1>Delete Account</h1>
+      <div class="subtitle">
+        Request deletion of your TasteTrip account and associated personal data.
+      </div>
+    </section>
+
+    <section class="content">
+      <h2>How to Request Deletion</h2>
+      <p>
+        TasteTrip users can request account deletion at any time by contacting
+        TasteTrip support from the email address connected to their account.
+      </p>
+      <ol>
+        <li>Email <a href="mailto:tastetrip.app@gmail.com">tastetrip.app@gmail.com</a>.</li>
+        <li>Use the subject line: <strong>Delete my TasteTrip account</strong>.</li>
+        <li>Include the email address connected to your TasteTrip account.</li>
+      </ol>
+
+      <div class="notice">
+        <p>
+          We may ask you to confirm that you control the account email before
+          completing the deletion request.
+        </p>
+      </div>
+
+      <h2>What Will Be Deleted</h2>
+      <p>
+        When your deletion request is completed, TasteTrip will delete or
+        disconnect personal information associated with your account, including:
+      </p>
+      <ul>
+        <li>Account profile information, such as name and email address.</li>
+        <li>Saved restaurants and dietary preferences.</li>
+        <li>Notification and location settings.</li>
+        <li>Reviews, beta feedback, support requests, and restaurant reports tied to your account where reasonably possible.</li>
+      </ul>
+
+      <h2>Information We May Keep Briefly</h2>
+      <p>
+        Some records may be retained for a limited time when needed for security,
+        fraud prevention, legal compliance, abuse prevention, backup recovery, or
+        app integrity. These records are kept only as long as reasonably necessary.
+      </p>
+
+      <h2>Processing Time</h2>
+      <p>
+        TasteTrip will review deletion requests and aim to complete them within
+        30 days after verifying the request.
+      </p>
+
+      <div class="contact-card">
+        <p>
+          Questions about account deletion? Contact us at
+          <a href="mailto:tastetrip.app@gmail.com">tastetrip.app@gmail.com</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
