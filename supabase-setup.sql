@@ -31,3 +31,23 @@ to authenticated
 with check (
   email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'
 );
+
+alter table if exists public.restaurants enable row level security;
+
+create or replace function public.get_tastetrip_launch_counts()
+returns table (
+  users_signed_up bigint,
+  restaurants_onboarded bigint
+)
+language sql
+security definer
+set search_path = public
+as $$
+  select
+    (select count(*) from public.beta_signups) as users_signed_up,
+    (select count(*) from public.restaurants) as restaurants_onboarded;
+$$;
+
+revoke all on function public.get_tastetrip_launch_counts() from public;
+grant execute on function public.get_tastetrip_launch_counts() to anon;
+grant execute on function public.get_tastetrip_launch_counts() to authenticated;
