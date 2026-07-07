@@ -240,6 +240,29 @@
         background: linear-gradient(90deg, var(--orange), var(--gold));
       }
 
+
+      .back-link {
+        width: min(520px, 100%);
+        min-height: 56px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 28px;
+        padding: 14px 18px;
+        color: var(--navy);
+        background: #ffffff;
+        border: 1px solid rgba(0, 31, 59, 0.18);
+        border-radius: 12px;
+        font-size: clamp(1rem, 2.3vw, 1.18rem);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        border-color: rgba(0, 31, 59, 0.34);
+        background: #fbfdf9;
+      }
+
       footer {
         margin-top: auto;
         padding-top: 42px;
@@ -332,6 +355,8 @@
             <div class="progress-bar" data-progress-bar="restaurants" style="--fill: 86%" aria-hidden="true"></div>
           </div>
         </div>
+
+        <a class="back-link" href="../">Back to beta launch page</a>
 
         <footer>&copy; 2026 TasteTrip. All rights reserved.</footer>
       </section>
