@@ -67,6 +67,7 @@
     }
 
     .brand-mark {
+      position: relative;
       width: 76px;
       height: 76px;
       border-radius: 24px;
@@ -74,6 +75,17 @@
         white url("assets/tastetrip-logo.png") center / 86% no-repeat;
       box-shadow: 0 14px 28px rgba(6, 36, 60, 0.22);
       flex: 0 0 auto;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
     }
 
     .home-link {
@@ -304,14 +316,10 @@
         protected as it grows.
       </p>
 
-      <h2>Children</h2>
-      <p>
-        TasteTrip is not directed to children under 13. We do not knowingly collect personal
-        information from children under 13. If you believe a child has provided information to
-        TasteTrip, please contact us so we can review and delete it if needed.
-      </p>
-
-      <h2>Changes to This Policy</h2>
+      <h2>Age Requirement</h2>
+<p>TasteTrip is intended for users who are 18 and over. TasteTrip is not directed to users under 18, and users under 18 should not create an account or use the app.</p>
+<p>We do not knowingly collect personal information from users under 18. If we learn that a user under 18 has provided personal information, we will take reasonable steps to delete that information and restrict access where appropriate.</p>
+<h2>Changes to This Policy</h2>
       <p>
         We may update this Privacy Policy as TasteTrip changes. If we make meaningful changes,
         we will update the effective date and make the revised policy available through the app
@@ -325,5 +333,12 @@
       </p>
     </section>
   </main>
+  <script>
+    document.querySelectorAll(".brand-mark").forEach((logo) => {
+      ["contextmenu", "dragstart", "copy", "cut", "selectstart"].forEach((eventName) => {
+        logo.addEventListener(eventName, (event) => event.preventDefault());
+      });
+    });
+  </script>
 </body>
 </html>
