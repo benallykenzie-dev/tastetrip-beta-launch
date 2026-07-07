@@ -66,6 +66,7 @@
     }
 
     .brand-mark {
+      position: relative;
       width: 76px;
       height: 76px;
       border-radius: 24px;
@@ -73,6 +74,17 @@
         white url("assets/tastetrip-logo.png") center / 86% no-repeat;
       box-shadow: 0 14px 28px rgba(6, 36, 60, 0.22);
       flex: 0 0 auto;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
     }
 
     .home-link {
@@ -260,5 +272,12 @@
       </div>
     </section>
   </main>
+  <script>
+    document.querySelectorAll(".brand-mark").forEach((logo) => {
+      ["contextmenu", "dragstart", "copy", "cut", "selectstart"].forEach((eventName) => {
+        logo.addEventListener(eventName, (event) => event.preventDefault());
+      });
+    });
+  </script>
 </body>
 </html>
